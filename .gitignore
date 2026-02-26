@@ -1,0 +1,37 @@
+# WordPress Git ignore
+
+# core
+wp-admin/
+wp-includes/
+
+# plugins and themes (if not managing them via git)
+wp-content/plugins/
+wp-content/themes/
+
+# uploads (often large media files)
+wp-content/uploads/
+
+# configuration files
+wp-config.php
+
+# logs and temporary files
+*.log
+*.cache
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# node/npm
+node_modules/
+package-lock.json
+
+# PHPStorm
+.idea/
+
+# others
+.sass-cache/
+.cache/
+
+# composer
+vendor/
