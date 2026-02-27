@@ -35,3 +35,7 @@ package-lock.json
 
 # composer
 vendor/
+
+node_modules/node_modules/
+remote-backup/
+

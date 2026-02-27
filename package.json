@@ -1,0 +1,24 @@
+{
+  "name": "valerymassageservice",
+  "version": "1.0.0",
+  "description": "This repository contains the source files for the Valery Massage Service website. It is a simple WordPress-based site with custom HTML and assets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server --port=5500"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincenzomerluzzo/valerymassageservice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vincenzomerluzzo/valerymassageservice/issues"
+  },
+  "homepage": "https://github.com/vincenzomerluzzo/valerymassageservice#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
