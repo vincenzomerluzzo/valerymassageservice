@@ -1,0 +1,23 @@
+---
+# cPanel deployment configuration — sync repository to public_html
+# This deploy uses rsync to copy repository files to $HOME/public_html
+# Adjust the exclude list or add build commands (e.g. npm run build) if needed.
+deployment:
+    tasks:
+        pre_deploy:
+            - echo "pre-deploy: ensure target exists"
+            - mkdir -p "$HOME/public_html"
+        deploy:
+            - |
+                if command -v rsync >/dev/null 2>&1; then
+                    rsync -av --delete \
+                        --exclude='.git' \
+                        --exclude='node_modules' \
+                        --exclude='remote-backup' \
+                        ./ "$HOME/public_html/"
+                else
+                    echo "rsync not found, falling back to tar+cp"
+                    (tar -cf - --exclude='.git' --exclude='node_modules' --exclude='remote-backup' .) | (cd "$HOME/public_html" && tar -xf -)
+                fi
+        post_deploy:
+            - echo "post-deploy: sync complete"
