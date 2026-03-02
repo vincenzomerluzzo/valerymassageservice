@@ -21,6 +21,10 @@
 <body class="bg-stone-50 text-stone-800">
 
 <header class="hero-bg min-h-screen flex items-center justify-center text-center text-white px-4 relative">
+    <div class="absolute top-10 left-6 md:left-12 flex gap-4 text-xl">
+        <a href="https://www.facebook.com/valerymassageservice" target="_blank" class="hover:text-stone-400 transition"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/valery_massage_service/" target="_blank" class="hover:text-stone-400 transition"><i class="fa-brands fa-instagram"></i></a>
+    </div>
     <div class="absolute top-10 right-6 md:right-12 flex gap-6 text-[10px] tracking-[0.3em] font-bold">
         <a href="index.html" class="opacity-50 hover:opacity-100 transition border-b-2 border-transparent hover:border-white pb-1">IT</a>
         <a href="index-en.html" class="opacity-50 hover:opacity-100 transition border-b-2 border-transparent hover:border-white pb-1">EN</a>
@@ -38,153 +42,248 @@
     </div>
 </header>
 
-    <section class="py-24 bg-white px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h5 class="text-sm uppercase tracking-[0.4em] text-stone-400 mb-4 italic">Philosophie</h5>
-                <h2 class="text-4xl md:text-6xl font-serif italic text-stone-800">Jede Behandlung ist einzigartig</h2>
+<section class="py-24 bg-white px-4">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h5 class="text-sm uppercase tracking-[0.4em] text-stone-400 mb-4 italic">Philosophie</h5>
+            <h2 class="text-4xl md:text-6xl font-serif italic text-stone-800">Jede Behandlung ist einzigartig</h2>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-12 items-center mb-20">
+            <div class="md:w-1/2 relative">
+                <div class="absolute -top-4 -left-4 w-full h-full border border-stone-200 -z-10"></div>
+                <img src="/img/approccio.jpg" alt="Technischer Ansatz" class="rounded-sm shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover h-[400px]">
             </div>
-            <div class="flex flex-col md:flex-row gap-12 items-center mb-20">
-                <div class="md:w-1/2 relative">
-                    <div class="absolute -top-4 -left-4 w-full h-full border border-stone-200 -z-10"></div>
-                    <img src="/img/approccio.jpg" alt="Technischer Ansatz" class="rounded-sm shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover h-[400px]">
-                </div>
-                <div class="md:w-1/2 space-y-6">
-                    <h3 class="text-3xl font-serif italic text-stone-800">Funktioneller Ansatz</h3>
-                    <p class="text-lg leading-relaxed text-stone-600 italic">
-                        "Ich passe die Techniken an die Person an, nicht umgekehrt. Meine Arbeit konzentriert sich auf Mobilität, Funktionalität und muskuläre Erholung mit fortschrittlichen Protokollen."
-                    </p>
-                    <p class="text-stone-400 uppercase tracking-widest text-xs font-bold">
-                        Professionalität • Ergebnis • Wohlbefinden
-                    </p>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="group p-8 bg-stone-50 hover:bg-stone-800 transition-all duration-500 rounded-sm border-b-4 border-stone-200 hover:border-stone-800">
-                    <i class="fa-solid fa-person-running text-3xl mb-6 text-stone-400 group-hover:text-white transition-colors"></i>
-                    <h3 class="text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-white transition-colors">Erholung</h3>
-                    <p class="text-sm text-stone-600 group-hover:text-stone-300 transition-colors">Optimierung nach Belastung und schneller Laktatabbau.</p>
-                </div>
-                <div class="group p-8 bg-stone-50 hover:bg-stone-800 transition-all duration-500 rounded-sm border-b-4 border-stone-200 hover:border-stone-800">
-                    <i class="fa-solid fa-arrows-up-down-left-right text-3xl mb-6 text-stone-400 group-hover:text-white transition-colors"></i>
-                    <h3 class="text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-white transition-colors">Mobilität</h3>
-                    <p class="text-sm text-stone-600 group-hover:text-stone-300 transition-colors">Verbesserung der Gelenkbeweglichkeit durch aktives Stretching.</p>
-                </div>
-                <div class="group p-8 bg-stone-50 hover:bg-stone-800 transition-all duration-500 rounded-sm border-b-4 border-stone-200 hover:border-stone-800">
-                    <i class="fa-solid fa-hand-sparkles text-3xl mb-6 text-stone-400 group-hover:text-white transition-colors"></i>
-                    <h3 class="text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-white transition-colors">Release</h3>
-                    <p class="text-sm text-stone-600 group-hover:text-stone-300 transition-colors">Behandlung myofaszialer Restriktionen zur Lösung tiefer Spannungen.</p>
-                </div>
-                <div class="group p-8 bg-stone-50 hover:bg-stone-800 transition-all duration-500 rounded-sm border-b-4 border-stone-200 hover:border-stone-800">
-                    <i class="fa-solid fa-trophy text-3xl mb-6 text-stone-400 group-hover:text-white transition-colors"></i>
-                    <h3 class="text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-white transition-colors">Performance</h3>
-                    <p class="text-sm text-stone-600 group-hover:text-stone-300 transition-colors">Athletische Unterstützung zur Verbesserung der Bewegungsqualität.</p>
-                </div>
+            <div class="md:w-1/2 space-y-6">
+                <h3 class="text-3xl font-serif italic text-stone-800">Funktioneller Ansatz</h3>
+                <p class="text-lg leading-relaxed text-stone-600 italic">
+                    "Ich passe die Techniken an das Individuum an, nicht umgekehrt. Meine Arbeit konzentriert sich auf Mobilität, Funktionalität und muskuläre Erholung unter Verwendung fortschrittlicher Protokolle."
+                </p>
+                <p class="text-stone-400 uppercase tracking-widest text-xs font-bold">Professionalität • Ergebnis • Wohlbefinden</p>
             </div>
         </div>
-    </section>
 
-    <section id="specializzazioni" class="py-24 bg-stone-50 border-y border-stone-200 px-4">
-        <div class="max-w-6xl mx-auto text-center mb-16">
-            <h5 class="text-sm uppercase tracking-[0.4em] text-stone-400 mb-4 italic">Fachkompetenzen</h5>
-            <h2 class="text-4xl md:text-6xl font-serif italic text-stone-800">Spezialisiert auf fortgeschrittene Techniken</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 text-left">
-                <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800">
-                    <h3 class="text-xl font-bold mb-3 italic">Combi Massage</h3>
-                    <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Kombinierte Techniken</p>
-                    <p class="text-stone-600 text-sm italic">Fließende Integration verschiedener manueller Methoden für eine umfassende Behandlung.</p>
-                </div>
-                <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800">
-                    <h3 class="text-xl font-bold mb-3 italic text-stone-800">Active Stretching Release (Aktives Dehnen)</h3>
-                    <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Joint Mobilisation (Gelenkmobilisation)</p>
-                    <p class="text-stone-600 text-sm italic">Mobilisierung und assistiertes Stretching zur Verbesserung der Elastizität.</p>
-                </div>
-                <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800">
-                    <h3 class="text-xl font-bold mb-3 italic">PNF Techniques</h3>
-                    <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Neuromuskuläre Fazilitation</p>
-                    <p class="text-stone-600 text-sm italic">Methode zur Optimierung der funktionellen Flexibilität des Bewegungsapparates.</p>
-                </div>
-                <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800">
-                    <h3 class="text-xl font-bold mb-3 italic">Deep Tissue Massage (Tiefengewebsmassage)</h3>
-                    <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Fortgeschrittene Techniken</p>
-                    <p class="text-stone-600 text-sm italic">Gezielte Behandlung der tiefen Muskelschichten zur Lösung chronischer Spannungen.</p>
-                </div>
-                <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800">
-                    <h3 class="text-xl font-bold mb-3 italic">Myofascial Release</h3>
-                    <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Faszien-Behandlung</p>
-                    <p class="text-stone-600 text-sm italic">Manuelle Therapie zur Befreiung von Faszienrestriktionen und zur Haltungskorrektur.</p>
-                </div>
-                <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800">
-                    <h3 class="text-xl font-bold mb-3 italic">Freestyle Massage</h3>
-                    <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Individuelle Behandlung</p>
-                    <p class="text-stone-600 text-sm italic">Maßgeschneiderte Sitzung basierend auf dem Feedback des Körpers.</p>
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="group p-8 bg-stone-50 hover:bg-stone-800 transition-all duration-500 rounded-sm border-b-4 border-stone-200 hover:border-stone-800">
+                <i class="fa-solid fa-person-running text-3xl mb-6 text-stone-400 group-hover:text-white transition-colors"></i>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-white transition-colors">Erholung</h3>
+                <p class="text-sm text-stone-600 group-hover:text-stone-300 transition-colors">Optimierung nach der Belastung und schneller Laktatabbau.</p>
+            </div>
+            <div class="group p-8 bg-stone-50 hover:bg-stone-800 transition-all duration-500 rounded-sm border-b-4 border-stone-200 hover:border-stone-800">
+                <i class="fa-solid fa-arrows-up-down-left-right text-3xl mb-6 text-stone-400 group-hover:text-white transition-colors"></i>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-white transition-colors">Mobilität</h3>
+                <p class="text-sm text-stone-600 group-hover:text-stone-300 transition-colors">Verbesserung der Gelenkbeweglichkeit durch aktives Stretching.</p>
+            </div>
+            <div class="group p-8 bg-stone-50 hover:bg-stone-800 transition-all duration-500 rounded-sm border-b-4 border-stone-200 hover:border-stone-800">
+                <i class="fa-solid fa-hand-sparkles text-3xl mb-6 text-stone-400 group-hover:text-white transition-colors"></i>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-white transition-colors">Release</h3>
+                <p class="text-sm text-stone-600 group-hover:text-stone-300 transition-colors">Behandlung myofaszialer Restriktionen zur Lösung tiefer Spannungen.</p>
+            </div>
+            <div class="group p-8 bg-stone-50 hover:bg-stone-800 transition-all duration-500 rounded-sm border-b-4 border-stone-200 hover:border-stone-800">
+                <i class="fa-solid fa-trophy text-3xl mb-6 text-stone-400 group-hover:text-white transition-colors"></i>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-wider group-hover:text-white transition-colors">Performance</h3>
+                <p class="text-sm text-stone-600 group-hover:text-stone-300 transition-colors">Athletische Unterstützung zur Verbesserung der Bewegungsqualität.</p>
             </div>
         </div>
-    </section>
-
-    <section class="py-24 bg-stone-900 text-white px-4">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-            <div class="md:sticky md:top-10">
-                <h2 class="text-4xl md:text-5xl font-serif italic mb-6">Profil & Ausbildung</h2>
-                <p class="text-stone-400 text-lg mb-8 italic">"Meine Ausbildung basiert auf dem Wunsch, technische Kompetenz mit Respekt für den Körper zu verbinden."</p>
-                <div class="p-8 bg-stone-800 border-l-4 border-stone-400 italic mb-8">
-                    <h4 class="text-xs uppercase tracking-[0.3em] mb-2 font-bold">Elite Workshop</h4>
-                    <p class="text-xl">Workshop mit Slavma: Advanced Sports Massage & Trigger Point Therapy.</p>
-                </div>
-                <img src="/img/foto1.jpg" alt="Berufsausbildung" class="w-full h-auto object-cover opacity-80 rounded-sm">
-            </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-[0.4em] text-stone-500 mb-8 font-bold">Zertifizierungen & Diplome</h4>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm tracking-wide italic">
-                    <div class="border-b border-stone-800 pb-2">Anatomie des Menschen</div>
-                    <div class="border-b border-stone-800 pb-2">Sportmassage (Stufe 1 & 2)</div>
-                    <div class="border-b border-stone-800 pb-2">Triggerpunkt-Therapie</div>
-                    <div class="border-b border-stone-800 pb-2">Kinesiologisches Taping</div>
-                    <div class="border-b border-stone-800 pb-2">Sport-Cupping (Schröpfen)</div>
-                    <div class="border-b border-stone-800 pb-2">Lymphdrainage (Vodder-Methode)</div>
-                    <div class="border-b border-stone-800 pb-2">Myofasziale Massage</div>
-                    <div class="border-b border-stone-800 pb-2">Posturale Massage</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contatti" class="py-24 bg-white px-4">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
-            <div>
-                <h5 class="text-sm uppercase tracking-[0.4em] text-stone-400 mb-4 italic">Kontakt</h5>
-                <h2 class="text-4xl md:text-5xl font-serif italic mb-8">Beginnen Sie Ihre Reise</h2>
-                <p class="text-stone-500 mb-10 text-lg italic">Buchen Sie Ihre Sitzung oder fordern Sie eine Beratung an. Antwort innerhalb von 24 Stunden.</p>
-            </div>
-            <div class="bg-stone-50 p-8 border border-stone-100">
-                <form action="https://formspree.io/f/mkovypap" method="POST" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="text" name="name" placeholder="Vollständiger Name" required class="w-full p-4 border border-stone-200 outline-none italic">
-                        <input type="tel" name="phone" placeholder="Telefonnummer" required class="w-full p-4 border border-stone-200 outline-none italic">
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="email" name="_replyto" placeholder="E-Mail-Adresse" required class="w-full p-4 border border-stone-200 outline-none italic">
-                        <input type="date" name="date" class="w-full p-4 border border-stone-200 outline-none italic text-stone-400">
-                    </div>
-                    <textarea name="message" rows="3" placeholder="Notizen oder spezielle Wünsche..." required class="w-full p-4 border border-stone-200 outline-none italic"></textarea>
-                    <button type="submit" class="w-full bg-stone-800 text-white py-4 font-bold uppercase tracking-widest text-sm hover:bg-stone-700 transition shadow-lg">Anfrage senden</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 bg-stone-900 text-center text-stone-500 text-[10px] uppercase tracking-[0.4em] italic">
-        <p>&copy; 2026 Valery Massage Service | <a href="privacy.html" class="underline">Datenschutz</a></p>
-    </footer>
-
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end group">
-        <div id="whatsapp-message" class="bg-white p-4 rounded-lg shadow-2xl mb-4 border border-stone-100 max-w-[250px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-            <p class="text-sm text-stone-800 font-medium italic">Hallo! 👋 Wie kann ich Ihnen helfen?</p>
-        </div>
-        <a href="https://wa.me/393518191177?text=Hallo,%20ich%20hätte%20gerne%20Informationen%20zu%20einer%20Behandlung" target="_blank" class="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition">
-            <i class="fa-brands fa-whatsapp text-3xl"></i>
-        </a>
     </div>
+</section>
+
+<section class="py-24 bg-stone-50 px-4 border-y border-stone-200">
+    <div class="max-w-6xl mx-auto">
+        <h5 class="text-sm uppercase tracking-[0.4em] text-stone-400 mb-12 text-center italic">Partnerschaften & Standorte</h5>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+            <div class="order-2 md:order-1">
+                <span class="text-xs font-bold tracking-widest text-stone-400 uppercase">Exklusiv in Varese</span>
+                <h3 class="text-3xl font-serif italic my-4">Hotel Montelago <br><span class="text-xl text-stone-500 font-sans italic">Ternate, Comabbio-See</span></h3>
+                <div class="bg-white p-6 border-l-4 border-stone-800 shadow-sm mb-6">
+                    <h4 class="font-bold uppercase text-xs mb-2">Neu: Massage in der Salzgrotte</h4>
+                    <p class="text-stone-600 italic text-sm leading-relaxed">
+                        Eine stille und gedämpfte Atmosphäre, in der die Vorteile des Salzes die Entspannung fördern und das Immunsystem stärken. Ein einzigartiges sensorisches Ritual.
+                    </p>
+                </div>
+                <ul class="text-sm text-stone-500 space-y-2 italic text-left">
+                    <li>✔ Professionelle Massagen direkt im Hotel</li>
+                    <li>✔ Wohltuende Atmosphäre mit respiratorischen Vorteilen</li>
+                    <li>✔ Perfekt zum Regenerieren und Abschalten vom Alltag</li>
+                    <li>✔ Auch als Hausservice verfügbar (im Umkreis von 30km von Brebbia)</li>
+                </ul>
+            </div>
+            <div class="order-1 md:order-2">
+                <img src="/img/hotel-montelago.jpg" alt="Hotel Montelago Salzgrotte" class="rounded-sm shadow-xl grayscale hover:grayscale-0 transition duration-700 w-full object-cover h-[400px]">
+            </div>
+        </div>
+
+        <div class="pt-12 border-t border-stone-200">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8">
+                <div>
+                    <h3 class="text-3xl font-serif italic text-stone-800">Camping Lido Monvalle</h3>
+                    <p class="text-stone-500 italic">Professionelles Wohlbefinden direkt am See</p>
+                </div>
+                <img src="/img/logo-lido-monvalle.png" alt="Logo Lido Monvalle" class="h-16 w-auto opacity-70 mt-4 md:mt-0">
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+                <div class="aspect-square bg-stone-200 overflow-hidden rounded-sm">
+                    <img src="/img/lido1.jpg" class="object-cover w-full h-full hover:scale-110 transition duration-500" loading="lazy">
+                </div>
+                <div class="aspect-square bg-stone-200 overflow-hidden rounded-sm">
+                    <img src="/img/lido2.jpg" class="object-cover w-full h-full hover:scale-110 transition duration-500" loading="lazy">
+                </div>
+                <div class="aspect-square bg-stone-200 overflow-hidden rounded-sm">
+                    <img src="/img/lido3.jpg" class="object-cover w-full h-full hover:scale-110 transition duration-500" loading="lazy">
+                </div>
+                <div class="aspect-square bg-stone-200 overflow-hidden rounded-sm">
+                    <img src="/img/lido4.jpg" class="object-cover w-full h-full hover:scale-110 transition duration-500" loading="lazy">
+                </div>
+                <div class="aspect-square bg-stone-200 overflow-hidden rounded-sm">
+                    <img src="/img/lido5.jpg" class="object-cover w-full h-full hover:scale-110 transition duration-500" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="specializzazioni" class="py-24 bg-white px-4">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h5 class="text-sm uppercase tracking-[0.4em] text-stone-400 mb-4 italic">Fachkompetenzen</h5>
+            <h2 class="text-4xl md:text-6xl font-serif italic text-stone-800">Fortgeschrittene Techniken</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+            <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800 hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold mb-3 italic">Combi Massage</h3>
+                <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Integrierte manuelle Techniken</p>
+                <p class="text-stone-600 text-sm italic">Eine fließende Integration verschiedener Methoden für eine maßgeschneiderte Behandlung.</p>
+            </div>
+            <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800 hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold mb-3 italic">Active Stretching Release (Aktives Dehnen)</h3>
+                <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Joint Mobilisation (Gelenkmobilisation)</p>
+                <p class="text-stone-600 text-sm italic">Gelenkmobilisationen und assistiertes Stretching zur Verbesserung des Bewegungsumfangs.</p>
+            </div>
+            <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800 hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold mb-3 italic">PNF Techniques</h3>
+                <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Neuromuskuläre Fazilitation</p>
+                <p class="text-stone-600 text-sm italic">Neuromuskuläre Umerziehung zur Optimierung der funktionellen Flexibilität.</p>
+            </div>
+            <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800 hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold mb-3 italic">Deep Tissue Massage (Tiefengewebsmassage)</h3>
+                <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Fortgeschrittene Techniken</p>
+                <p class="text-stone-600 text-sm italic">Gezielte Einwirkung auf tiefe Muskelschichten zur Lösung chronischer Verspannungen.</p>
+            </div>
+            <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800 hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold mb-3 italic">Myofascial Release</h3>
+                <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Faszien-Behandlung</p>
+                <p class="text-stone-600 text-sm italic">Manuelle Behandlung zur Befreiung von Faszienrestriktionen und zur Haltungskorrektur.</p>
+            </div>
+            <div class="bg-white p-8 shadow-sm border-t-2 border-stone-800 hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold mb-3 italic">Freestyle Massage</h3>
+                <p class="text-stone-400 text-xs uppercase tracking-widest mb-4 italic">Individuelle Behandlung</p>
+                <p class="text-stone-600 text-sm italic">Eine in Echtzeit aufgebaute Sitzung, die ausschließlich auf den Bedürfnissen des Körpers basiert.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-stone-900 text-white px-4 italic border-y border-stone-800 text-center">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-stone-500 mb-6 text-2xl tracking-[0.5em]">★★★★★</div>
+        <p class="text-xl md:text-2xl leading-relaxed mb-8 opacity-90 font-serif">
+            "Normalerweise gebe ich der Bequemlichkeithalber keine Bewertungen ab, aber solch eine Massage hatte ich noch vorher noch nie erhalten. Valeria hat sofort meine Painpoints entdeckt und bearbeitet. Wehwehchen von einer Knie Op von vor zwei Jahren waren danach behoben."
+        </p>
+        <h4 class="text-xs uppercase tracking-[0.3em] text-stone-400 font-bold italic text-center">Bewertung vom Lido Monvalle — 1. Sept. 2025</h4>
+    </div>
+</section>
+
+<section class="py-24 bg-stone-900 text-white px-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+        <div class="md:sticky md:top-10">
+            <h2 class="text-4xl md:text-5xl font-serif italic mb-6">Profil & Ausbildung</h2>
+            <p class="text-stone-400 text-lg mb-8 italic">"Meine Ausbildung basiert auf dem Wunsch, technische Kompetenz und Respekt vor dem Körper zu vereinen."</p>
+            <div class="p-8 bg-stone-800 border-l-4 border-stone-400 mb-8 italic">
+                <h4 class="text-xs uppercase tracking-[0.3em] text-stone-300 mb-2 font-bold italic">Elite-Fortbildung</h4>
+                <p class="text-xl">Workshop mit Slavma: Advanced Sports Massage & Trigger Point Therapy.</p>
+            </div>
+            <img src="/img/foto1.jpg" alt="Valery Ausbildung" class="w-full h-auto opacity-80 rounded-sm shadow-2xl">
+        </div>
+        <div>
+            <h4 class="text-xs uppercase tracking-[0.4em] text-stone-500 mb-8 font-bold italic text-left">Ausbildungsweg</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm italic text-left">
+                <div class="border-b border-stone-800 pb-2">Anatomie des Menschen</div>
+                <div class="border-b border-stone-800 pb-2">Sportmassage (Stufe 1 & 2)</div>
+                <div class="border-b border-stone-800 pb-2">Triggerpunkt-Therapie</div>
+                <div class="border-b border-stone-800 pb-2">Kinesiologisches Taping</div>
+                <div class="border-b border-stone-800 pb-2">Sport-Cupping (Schröpfen)</div>
+                <div class="border-b border-stone-800 pb-2">Manuelle Lymphdrainage</div>
+                <div class="border-b border-stone-800 pb-2">Posturale Massage</div>
+                <div class="border-b border-stone-800 pb-2">Myofasziale Techniken</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-12 bg-white px-4">
+    <div class="max-w-4xl mx-auto">
+        <img src="/img/valery-trentino.jpg" alt="Valeria Trentino" class="w-full h-auto rounded-sm shadow-xl grayscale hover:grayscale-0 transition duration-700">
+        <p class="text-center text-stone-400 text-[10px] uppercase tracking-widest mt-6 italic font-bold">Berufsregister IT02736580032 — Trentino Experience</p>
+    </div>
+</section>
+
+<section id="contatti" class="py-24 bg-white px-4 border-t border-stone-100">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+        <div>
+            <h5 class="text-sm uppercase tracking-[0.4em] text-stone-400 mb-4 italic font-bold">Kontakt</h5>
+            <h2 class="text-4xl md:text-5xl font-serif italic mb-8 italic text-stone-800">Beginnen Sie Ihre Reise</h2>
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <i class="fa-brands fa-whatsapp text-stone-300 text-2xl"></i>
+                    <a href="https://wa.me/393518191177" target="_blank" class="text-stone-800 italic border-b border-stone-200">Per WhatsApp kontaktieren</a>
+                </div>
+                <p class="text-stone-500 italic">Hausservice im Umkreis von 30 km von Brebbia (VA) verfügbar.</p>
+            </div>
+        </div>
+        <div class="bg-stone-50 p-8 rounded-sm shadow-sm border border-stone-100">
+            <form action="https://formspree.io/f/mkovypap" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" name="name" placeholder="Name" required class="w-full p-4 border border-stone-200 outline-none italic">
+                    <input type="tel" name="phone" placeholder="Telefon" required class="w-full p-4 border border-stone-200 outline-none italic">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="email" name="email" placeholder="E-Mail" required class="w-full p-4 border border-stone-200 outline-none italic">
+                    <input type="date" name="date" class="w-full p-4 border border-stone-200 text-stone-400 outline-none italic">
+                </div>
+                <textarea name="message" rows="3" placeholder="Notizen oder Wünsche..." required class="w-full p-4 border border-stone-200 outline-none italic"></textarea>
+                <button type="submit" class="w-full bg-stone-800 text-white py-4 font-bold uppercase tracking-widest text-sm hover:bg-stone-700 transition">Anfrage senden</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="py-12 bg-stone-900 text-center border-t border-stone-800">
+    <div class="mb-6 flex justify-center gap-6 text-stone-500">
+        <a href="https://www.facebook.com/valerymassageservice" target="_blank" class="hover:text-white transition text-xl"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/valery_massage_service/" target="_blank" class="hover:text-white transition text-xl"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <p class="text-stone-500 text-[10px] uppercase tracking-[0.4em] italic mb-2 font-bold">&copy; 2026 Valery Massage Service</p>
+    <p class="text-stone-600 text-[9px] uppercase tracking-widest mb-4 italic">
+        MASTRORILLI VALERIA · MwSt-Nr: 02736580032 · ATECO-CODE: 869901
+    </p>
+    <a href="privacy.html" class="text-stone-600 hover:text-stone-300 transition-colors text-[10px] uppercase tracking-widest italic underline decoration-stone-700 italic">Datenschutz</a>
+</footer>
+
+<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end group">
+    <div id="whatsapp-message" class="bg-white p-4 rounded-lg shadow-2xl mb-4 border border-stone-100 max-w-[250px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500">
+        <p class="text-sm text-stone-800 font-medium italic text-left">Hallo! 👋 Wie kann ich Ihnen helfen?</p>
+    </div>
+    <a href="https://wa.me/393518191177?text=Hallo,%20ich%20hätte%20gerne%20Informationen" target="_blank" class="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+</div>
+
+<div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-stone-900 text-stone-400 py-4 px-6 text-[10px] uppercase tracking-widest flex flex-col md:flex-row justify-between items-center z-[100] border-t border-stone-800 italic">
+    <p>Wir verwenden ausschließlich technische Cookies. <a href="privacy.html" class="underline">Mehr erfahren</a>.</p>
+    <button onclick="document.getElementById('cookie-banner').style.display='none'" class="bg-white text-stone-900 px-4 py-1 font-bold mt-2 md:mt-0 hover:bg-stone-200">OK</button>
+</div>
+
 </body>
 </html>
