@@ -16,6 +16,27 @@
             background-size: cover; 
             background-position: center; 
         }
+        .testimonial-slide {
+            display: none;
+        }
+        .testimonial-slide.is-active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        .testimonial-dot.is-active {
+            background-color: rgb(255 255 255 / 0.9);
+            transform: scale(1.15);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800">
@@ -170,12 +191,46 @@
 </section>
 
 <section class="py-20 bg-stone-900 text-white px-4 italic border-y border-stone-800">
-    <div class="max-w-4xl mx-auto text-center">
-        <div class="text-stone-500 mb-6 text-2xl tracking-[0.5em]">★★★★★</div>
-        <p class="text-xl md:text-2xl leading-relaxed mb-8 opacity-90">
-            "Normalerweise gebe ich der Bequemlichkeithalber keine Bewertungen ab, aber solch eine Massage hatte ich noch vorher noch nie erhalten. Valeria hat sofort meine Painpoints entdeckt und bearbeitet. Wehwehchen von einer Knie Op von vor zwei Jahren waren danach behoben."
-        </p>
-        <h4 class="text-xs uppercase tracking-[0.3em] text-stone-400 font-bold">Massage in Lido Monvalle — 1 Sept. 2025</h4>
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-10">
+            <h5 class="text-sm uppercase tracking-[0.4em] text-stone-500 mb-4 font-bold">Recensioni</h5>
+            <h2 class="text-4xl md:text-5xl font-serif italic">Le parole di chi si è affidato a me</h2>
+        </div>
+
+        <div id="testimonial-carousel" class="relative">
+            <div class="overflow-hidden">
+                <article class="testimonial-slide is-active text-center px-4 md:px-16" data-testimonial-slide>
+                    <div class="text-stone-500 mb-6 text-2xl tracking-[0.5em]">★★★★★</div>
+                    <p class="text-xl md:text-2xl leading-relaxed mb-8 opacity-90">
+                        "Normalerweise gebe ich der Bequemlichkeithalber keine Bewertungen ab, aber solch eine Massage hatte ich noch vorher noch nie erhalten. Valeria hat sofort meine Painpoints entdeckt und bearbeitet. Wehwehchen von einer Knie Op von vor zwei Jahren waren danach behoben."
+                    </p>
+                    <h4 class="text-xs uppercase tracking-[0.3em] text-stone-400 font-bold">Massage in Lido Monvalle — 1 Sept. 2025</h4>
+                </article>
+
+                <article class="testimonial-slide text-center px-4 md:px-16" data-testimonial-slide>
+                    <div class="text-stone-500 mb-6 text-2xl tracking-[0.5em]">★★★★★</div>
+                    <p class="text-xl md:text-2xl leading-relaxed mb-8 opacity-90">
+                        "Persona competente e professionale. Mi ha permesso di ritornare in campo in brevissimo tempo dopo un forte mal di schiena. Consigliato! Tornerò sicuramente."
+                    </p>
+                    <h4 class="text-xs uppercase tracking-[0.3em] text-stone-400 font-bold">Matteo Negri</h4>
+                </article>
+            </div>
+
+            <div class="flex items-center justify-between mt-10 gap-4">
+                <button type="button" id="testimonial-prev" class="flex h-12 w-12 items-center justify-center rounded-full border border-stone-700 text-stone-200 hover:bg-stone-800 transition" aria-label="Recensione precedente">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+
+                <div class="flex items-center gap-3">
+                    <button type="button" class="testimonial-dot is-active h-2.5 w-2.5 rounded-full bg-white/40 transition" aria-label="Vai alla recensione 1" data-testimonial-dot="0"></button>
+                    <button type="button" class="testimonial-dot h-2.5 w-2.5 rounded-full bg-white/40 transition" aria-label="Vai alla recensione 2" data-testimonial-dot="1"></button>
+                </div>
+
+                <button type="button" id="testimonial-next" class="flex h-12 w-12 items-center justify-center rounded-full border border-stone-700 text-stone-200 hover:bg-stone-800 transition" aria-label="Recensione successiva">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -268,6 +323,69 @@
     <p>Utilizziamo solo cookie tecnici. <a href="privacy.html" class="underline">Leggi di più</a>.</p>
     <button onclick="document.getElementById('cookie-banner').style.display='none'" class="bg-white text-stone-900 px-4 py-1 font-bold mt-2 md:mt-0 hover:bg-stone-200">OK</button>
 </div>
+
+<script>
+    const testimonialCarousel = document.getElementById('testimonial-carousel');
+    const testimonialSlides = Array.from(document.querySelectorAll('[data-testimonial-slide]'));
+    const testimonialDots = Array.from(document.querySelectorAll('[data-testimonial-dot]'));
+    const testimonialPrev = document.getElementById('testimonial-prev');
+    const testimonialNext = document.getElementById('testimonial-next');
+    let testimonialIndex = 0;
+    let testimonialAutoplay;
+
+    function renderTestimonial(index) {
+        testimonialSlides.forEach((slide, slideIndex) => {
+            slide.classList.toggle('is-active', slideIndex === index);
+        });
+
+        testimonialDots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('is-active', dotIndex === index);
+        });
+    }
+
+    function showTestimonial(index) {
+        testimonialIndex = (index + testimonialSlides.length) % testimonialSlides.length;
+        renderTestimonial(testimonialIndex);
+    }
+
+    function startTestimonialAutoplay() {
+        stopTestimonialAutoplay();
+        testimonialAutoplay = window.setInterval(() => {
+            showTestimonial(testimonialIndex + 1);
+        }, 6000);
+    }
+
+    function stopTestimonialAutoplay() {
+        if (testimonialAutoplay) {
+            window.clearInterval(testimonialAutoplay);
+        }
+    }
+
+    testimonialPrev.addEventListener('click', () => {
+        showTestimonial(testimonialIndex - 1);
+        startTestimonialAutoplay();
+    });
+
+    testimonialNext.addEventListener('click', () => {
+        showTestimonial(testimonialIndex + 1);
+        startTestimonialAutoplay();
+    });
+
+    testimonialDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showTestimonial(index);
+            startTestimonialAutoplay();
+        });
+    });
+
+    testimonialCarousel.addEventListener('mouseenter', stopTestimonialAutoplay);
+    testimonialCarousel.addEventListener('mouseleave', startTestimonialAutoplay);
+    testimonialCarousel.addEventListener('touchstart', stopTestimonialAutoplay, { passive: true });
+    testimonialCarousel.addEventListener('touchend', startTestimonialAutoplay);
+
+    renderTestimonial(testimonialIndex);
+    startTestimonialAutoplay();
+</script>
 
 </body>
 </html>
