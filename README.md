@@ -49,6 +49,10 @@ No cPanel shell/SSH access is required.
 2. Push to `main` and check **Actions** tab for deploy logs.
 3. Optional: run it manually via **Actions → Deploy To cPanel (FTP) → Run workflow**.
 
+Safety notes:
+- The workflow is configured to avoid touching typical server-managed files (`.htaccess`, `wp-*`, `cgi-bin`, `php.ini`).
+- If your cPanel account hosts multiple apps in the same directory, prefer deploying to a dedicated subfolder.
+
 ### Make the repository private
 
 To set the repository private:
