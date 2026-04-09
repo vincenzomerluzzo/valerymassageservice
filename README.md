@@ -38,13 +38,14 @@ The `.cpanel.yml` file at the repository root defines additional deployment step
 
 This repository includes an automatic workflow at `.github/workflows/deploy-cpanel.yml`.
 On each push to `main`, GitHub uploads files directly to cPanel via FTP.
+No cPanel shell/SSH access is required.
 
 1. In GitHub, open **Settings → Secrets and variables → Actions** and add:
    - `CPANEL_FTP_SERVER` (example: `ftp.yourdomain.com`)
    - `CPANEL_FTP_USERNAME`
    - `CPANEL_FTP_PASSWORD`
-   - `CPANEL_FTP_PORT` (usually `21` for FTP or `22` only if your provider explicitly supports SFTP in this workflow)
-   - `CPANEL_FTP_SERVER_DIR` (example: `/public_html/`)
+   - `CPANEL_FTP_PORT` (optional, default is `21`)
+   - `CPANEL_FTP_SERVER_DIR` (optional, default is `/public_html/`)
 2. Push to `main` and check **Actions** tab for deploy logs.
 3. Optional: run it manually via **Actions → Deploy To cPanel (FTP) → Run workflow**.
 

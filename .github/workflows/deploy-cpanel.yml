@@ -23,8 +23,8 @@ jobs:
           server: ${{ secrets.CPANEL_FTP_SERVER }}
           username: ${{ secrets.CPANEL_FTP_USERNAME }}
           password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-          port: ${{ secrets.CPANEL_FTP_PORT }}
-          server-dir: ${{ secrets.CPANEL_FTP_SERVER_DIR }}
+          port: ${{ secrets.CPANEL_FTP_PORT || 21 }}
+          server-dir: ${{ secrets.CPANEL_FTP_SERVER_DIR || '/public_html/' }}
           exclude: |
             **/.git*
             **/.git*/**
