@@ -44,6 +44,7 @@ No cPanel shell/SSH access is required.
    - `CPANEL_FTP_SERVER` (example: `ftp.yourdomain.com`)
    - `CPANEL_FTP_USERNAME`
    - `CPANEL_FTP_PASSWORD`
+   - `CPANEL_FTP_PROTOCOL` (optional, `ftps` or `ftp`, default is `ftps`)
    - `CPANEL_FTP_PORT` (optional, default is `21`)
    - `CPANEL_FTP_SERVER_DIR` (optional, default is `/public_html/`)
 2. Push to `main` and check **Actions** tab for deploy logs.
@@ -52,6 +53,7 @@ No cPanel shell/SSH access is required.
 Safety notes:
 - The workflow is configured to avoid touching typical server-managed files (`.htaccess`, `wp-*`, `cgi-bin`, `php.ini`).
 - If your cPanel account hosts multiple apps in the same directory, prefer deploying to a dedicated subfolder.
+- If deploy times out, first try `CPANEL_FTP_PROTOCOL=ftps` with port `21`; if your host does not support FTPS, switch to `ftp` on port `21`.
 
 ### Make the repository private
 
