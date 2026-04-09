@@ -40,7 +40,7 @@ This repository includes an automatic workflow at `.github/workflows/deploy-cpan
 On each push to `main`, GitHub uploads files directly to cPanel via FTP.
 No cPanel shell/SSH access is required.
 
-1. In GitHub, open **Settings → Secrets and variables → Actions** and add:
+1. In GitHub, open **Settings → Secrets and variables → Actions** and set these values (as **Secrets** or **Repository Variables**):
    - `CPANEL_FTP_SERVER` (example: `ftp.yourdomain.com`)
    - `CPANEL_FTP_USERNAME`
    - `CPANEL_FTP_PASSWORD`

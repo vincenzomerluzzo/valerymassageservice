@@ -13,18 +13,43 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      CPANEL_FTP_SERVER: ${{ secrets.CPANEL_FTP_SERVER || vars.CPANEL_FTP_SERVER }}
+      CPANEL_FTP_USERNAME: ${{ secrets.CPANEL_FTP_USERNAME || vars.CPANEL_FTP_USERNAME }}
+      CPANEL_FTP_PASSWORD: ${{ secrets.CPANEL_FTP_PASSWORD || vars.CPANEL_FTP_PASSWORD }}
+      CPANEL_FTP_PORT: ${{ secrets.CPANEL_FTP_PORT || vars.CPANEL_FTP_PORT || 21 }}
+      CPANEL_FTP_SERVER_DIR: ${{ secrets.CPANEL_FTP_SERVER_DIR || vars.CPANEL_FTP_SERVER_DIR || '/public_html/' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Validate FTP configuration
+        run: |
+          missing=0
+          if [ -z "${CPANEL_FTP_SERVER}" ]; then
+            echo "Missing CPANEL_FTP_SERVER (set Secret or Variable)."
+            missing=1
+          fi
+          if [ -z "${CPANEL_FTP_USERNAME}" ]; then
+            echo "Missing CPANEL_FTP_USERNAME (set Secret or Variable)."
+            missing=1
+          fi
+          if [ -z "${CPANEL_FTP_PASSWORD}" ]; then
+            echo "Missing CPANEL_FTP_PASSWORD (set Secret or Variable)."
+            missing=1
+          fi
+          if [ "$missing" -ne 0 ]; then
+            exit 1
+          fi
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.CPANEL_FTP_SERVER }}
-          username: ${{ secrets.CPANEL_FTP_USERNAME }}
-          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-          port: ${{ secrets.CPANEL_FTP_PORT || 21 }}
-          server-dir: ${{ secrets.CPANEL_FTP_SERVER_DIR || '/public_html/' }}
+          server: ${{ env.CPANEL_FTP_SERVER }}
+          username: ${{ env.CPANEL_FTP_USERNAME }}
+          password: ${{ env.CPANEL_FTP_PASSWORD }}
+          port: ${{ env.CPANEL_FTP_PORT }}
+          server-dir: ${{ env.CPANEL_FTP_SERVER_DIR }}
           exclude: |
             **/.git*
             **/.git*/**
