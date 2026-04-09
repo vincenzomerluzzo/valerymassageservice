@@ -34,5 +34,30 @@ If your cPanel panel does not offer the built-in Git Version Control auto‑pull
 
 The `.cpanel.yml` file at the repository root defines additional deployment steps (e.g. rsync) and will run automatically when the above pulls occur.
 
+### GitHub Actions FTP deploy (recommended)
+
+This repository includes an automatic workflow at `.github/workflows/deploy-cpanel.yml`.
+On each push to `main`, GitHub uploads files directly to cPanel via FTP.
+
+1. In GitHub, open **Settings → Secrets and variables → Actions** and add:
+   - `CPANEL_FTP_SERVER` (example: `ftp.yourdomain.com`)
+   - `CPANEL_FTP_USERNAME`
+   - `CPANEL_FTP_PASSWORD`
+   - `CPANEL_FTP_PORT` (usually `21` for FTP or `22` only if your provider explicitly supports SFTP in this workflow)
+   - `CPANEL_FTP_SERVER_DIR` (example: `/public_html/`)
+2. Push to `main` and check **Actions** tab for deploy logs.
+3. Optional: run it manually via **Actions → Deploy To cPanel (FTP) → Run workflow**.
+
+### Make the repository private
+
+To set the repository private:
+1. Open GitHub repository page.
+2. Go to **Settings → General → Danger Zone**.
+3. Click **Change repository visibility** and select **Make private**.
+
+Important:
+- If your hosting uses "Git Version Control" inside cPanel, ensure cPanel can still authenticate to your private repo (deploy key/PAT).
+- FTP deploy via GitHub Actions continues to work with private repositories.
+
 ## License
 Specify the appropriate license here.
