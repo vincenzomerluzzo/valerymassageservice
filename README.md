@@ -44,7 +44,7 @@ No cPanel shell/SSH access is required.
    - `CPANEL_FTP_SERVER` (example: `ftp.yourdomain.com`)
    - `CPANEL_FTP_USERNAME`
    - `CPANEL_FTP_PASSWORD`
-   - `CPANEL_FTP_PROTOCOL` (optional, `ftps` or `ftp`, default is `ftps`)
+   - `CPANEL_FTP_PROTOCOL` (optional, `auto`, `ftps` or `ftp`, default is `auto`)
    - `CPANEL_FTP_PORT` (optional, default is `21`)
    - `CPANEL_FTP_SERVER_DIR` (optional, default is `/public_html/`)
 2. Push to `main` and check **Actions** tab for deploy logs.

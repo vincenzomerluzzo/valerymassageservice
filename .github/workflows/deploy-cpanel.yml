@@ -17,7 +17,7 @@ jobs:
       CPANEL_FTP_SERVER: ${{ secrets.CPANEL_FTP_SERVER || vars.CPANEL_FTP_SERVER }}
       CPANEL_FTP_USERNAME: ${{ secrets.CPANEL_FTP_USERNAME || vars.CPANEL_FTP_USERNAME }}
       CPANEL_FTP_PASSWORD: ${{ secrets.CPANEL_FTP_PASSWORD || vars.CPANEL_FTP_PASSWORD }}
-      CPANEL_FTP_PROTOCOL: ${{ secrets.CPANEL_FTP_PROTOCOL || vars.CPANEL_FTP_PROTOCOL || 'ftps' }}
+      CPANEL_FTP_PROTOCOL: ${{ secrets.CPANEL_FTP_PROTOCOL || vars.CPANEL_FTP_PROTOCOL || 'auto' }}
       CPANEL_FTP_PORT: ${{ secrets.CPANEL_FTP_PORT || vars.CPANEL_FTP_PORT || 21 }}
       CPANEL_FTP_SERVER_DIR: ${{ secrets.CPANEL_FTP_SERVER_DIR || vars.CPANEL_FTP_SERVER_DIR || '/public_html/' }}
     steps:
@@ -39,40 +39,75 @@ jobs:
             echo "Missing CPANEL_FTP_PASSWORD (set Secret or Variable)."
             missing=1
           fi
-          if [ "${CPANEL_FTP_PROTOCOL}" != "ftp" ] && [ "${CPANEL_FTP_PROTOCOL}" != "ftps" ]; then
-            echo "Invalid CPANEL_FTP_PROTOCOL: '${CPANEL_FTP_PROTOCOL}'. Use 'ftp' or 'ftps'."
+          if [ "${CPANEL_FTP_PROTOCOL}" != "ftp" ] && [ "${CPANEL_FTP_PROTOCOL}" != "ftps" ] && [ "${CPANEL_FTP_PROTOCOL}" != "auto" ]; then
+            echo "Invalid CPANEL_FTP_PROTOCOL: '${CPANEL_FTP_PROTOCOL}'. Use 'auto', 'ftp' or 'ftps'."
             missing=1
           fi
           if [ "$missing" -ne 0 ]; then
             exit 1
           fi
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ env.CPANEL_FTP_SERVER }}
-          username: ${{ env.CPANEL_FTP_USERNAME }}
-          password: ${{ env.CPANEL_FTP_PASSWORD }}
-          protocol: ${{ env.CPANEL_FTP_PROTOCOL }}
-          port: ${{ env.CPANEL_FTP_PORT }}
-          server-dir: ${{ env.CPANEL_FTP_SERVER_DIR }}
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/node_modules/**
-            **/.DS_Store
-            **/.htaccess
-            **/cgi-bin/**
-            **/error_log
-            **/php.ini
-            **/wp-admin/**
-            **/wp-includes/**
-            **/wp-content/**
-            **/wp-config.php
-            **/xmlrpc.php
-            README.md
-            package*.json
-            .cpanel.yml
-            git-hook.php
+      - name: Install lftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Deploy via FTP/FTPS (with retries)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          deploy_once() {
+            local mode="$1"
+            local port="$2"
+            local ssl_force="false"
+            local ssl_protect="false"
+
+            if [ "$mode" = "ftps" ]; then
+              ssl_force="true"
+              ssl_protect="true"
+            fi
+
+            echo "Trying deploy mode=${mode} port=${port}"
+
+            lftp <<LFTP_CMDS
+set cmd:fail-exit true
+set net:timeout 25
+set net:max-retries 1
+set net:reconnect-interval-base 5
+set ftp:passive-mode true
+set ftp:ssl-force ${ssl_force}
+set ftp:ssl-protect-data ${ssl_protect}
+set ssl:verify-certificate false
+open -u "${CPANEL_FTP_USERNAME}","${CPANEL_FTP_PASSWORD}" -p "${port}" "${CPANEL_FTP_SERVER}"
+mirror -R --verbose --only-newer \
+  --exclude-glob .git* \
+  --exclude-glob .github \
+  --exclude-glob node_modules \
+  --exclude-glob .DS_Store \
+  --exclude-glob .htaccess \
+  --exclude-glob cgi-bin \
+  --exclude-glob error_log \
+  --exclude-glob php.ini \
+  --exclude-glob wp-admin \
+  --exclude-glob wp-includes \
+  --exclude-glob wp-content \
+  --exclude-glob wp-config.php \
+  --exclude-glob xmlrpc.php \
+  --exclude-glob README.md \
+  --exclude-glob package.json \
+  --exclude-glob package-lock.json \
+  --exclude-glob .cpanel.yml \
+  --exclude-glob git-hook.php \
+  ./ "${CPANEL_FTP_SERVER_DIR}"
+bye
+LFTP_CMDS
+          }
+
+          if [ "${CPANEL_FTP_PROTOCOL}" = "auto" ]; then
+            deploy_once ftps 21 || deploy_once ftps 990 || deploy_once ftp 21
+          elif [ "${CPANEL_FTP_PROTOCOL}" = "ftps" ]; then
+            deploy_once ftps "${CPANEL_FTP_PORT}"
+          else
+            deploy_once ftp "${CPANEL_FTP_PORT}"
+          fi
